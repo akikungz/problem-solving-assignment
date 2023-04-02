@@ -1,4 +1,3 @@
-import sys
 import networkx as nx
 from os import system
 import eel
@@ -101,7 +100,7 @@ def getShortestPath(start, end):
 
 @eel.expose
 def stop():
-    sys.exit()
+    exit()
 
 eel.init("web")
 eel.start("index.html")
