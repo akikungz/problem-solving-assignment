@@ -1,5 +1,9 @@
 # 060233110 Problem Solving - Assignment
 
+## Requirements
+- Python 3.8 or higher
+- pip
+
 ## Setup
 1. setup a virtual environment and activate it (optional)
     - On windows: `python -m venv venv` then `venv\Scripts\activate.bat` # or `venv\Scripts\activate.ps1` if you are using powershell

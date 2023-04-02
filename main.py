@@ -1,8 +1,9 @@
-import networkx as nx
 from os import system
+from networkx import shortest_path, Graph
+
 import eel
 
-network = nx.Graph()
+network = Graph()
 provinces = ['Chumphon', 'Krabi', 'Nakhon Si Thammarat', 'Narathiwat', 'Pattani', 'Phang Nga', 'Phatthalung', 'Phuket', 'Ranong', 'Satun', 'Songkhla', 'Surat Thani', 'Trang', 'Yala']
 
 # Add nodes
@@ -86,19 +87,19 @@ edge_labels = {
     ('Phang Nga', 'Phuket'): 108.3
 }
 
-@eel.expose
+@eel.expose()
 def helloWorld():
     print("Hello, World!")
 
-@eel.expose
+@eel.expose()
 def getShortestPath(start, end):
-    shortestPath = nx.shortest_path(network, start, end)
+    shortestPath = shortest_path(network, start, end)
     totalDistance = sum(edge_labels[(shortestPath[i], shortestPath[i+1])] for i in range(len(shortestPath)-1))
     totalDistance = round(totalDistance, 2)
 
     return shortestPath, totalDistance
 
-@eel.expose
+@eel.expose()
 def stop():
     exit()
 
